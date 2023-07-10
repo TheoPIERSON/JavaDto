@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class main {
 
@@ -14,7 +15,7 @@ public class main {
 
 		Statement stmt = null;
 		ResultSet rs = null;
-		
+		ArrayList<Article> mesArticles = new ArrayList<Article>();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		    
@@ -24,14 +25,16 @@ public class main {
 		    String connectionString = "jdbc:mysql://127.0.0.1:3306/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword + "&useUnicode=true&characterEncoding=UTF-8";
 
 		    conn = DriverManager.getConnection(connectionString);
-		    Article Kebab = new Article(1,"kebab", 6);
 		    
 		    stmt = conn.createStatement();
 		    rs = stmt.executeQuery("SELECT * FROM Article");
 		    while(rs.next()) {
-		    	 System.out.println(rs.getInt(1));
-		    	 System.out.println(rs.getString(2));
-		    	 System.out.println(rs.getInt(3));
+		    	// System.out.println(rs.getInt(1));
+		    	// System.out.println(rs.getString(2));
+		    	// System.out.println(rs.getDouble(3));
+		    	 Article monArticle = new Article (rs.getInt(1),rs.getString(2),rs.getDouble(3));
+		    	 System.out.println(monArticle);
+		    	 mesArticles.add(monArticle);
 		    }
 		   
 		    

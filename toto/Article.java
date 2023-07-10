@@ -26,6 +26,11 @@ public class Article {
             this.prix = prix;
      }
     }
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", libelle=" + libelle + ", prix=" + prix + "]";
+	}
+
 	public Article (int id, String libelle, double prix) {
 		this.id = id;
 		this.libelle = libelle;
