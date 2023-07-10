@@ -4,6 +4,12 @@ public class Article {
 	private int id;
 	private String libelle;
 	private double prix;
+	public Article (int id, String libelle, double prix) {
+		this.id = id;
+		this.libelle = libelle;
+		this.prix = prix;
+		
+	}
 	
 	public int getid() {
         return id;
@@ -31,9 +37,4 @@ public class Article {
 		return "Article [id=" + id + ", libelle=" + libelle + ", prix=" + prix + "]";
 	}
 
-	public Article (int id, String libelle, double prix) {
-		this.id = id;
-		this.libelle = libelle;
-		this.prix = prix;
-	}
 }

@@ -10,22 +10,13 @@ import java.util.ArrayList;
 public class main {
 
 	public static void main(String[] args) {
-		Connection conn = null;
 		
-
+		
 		Statement stmt = null;
 		ResultSet rs = null;
 		ArrayList<Article> mesArticles = new ArrayList<Article>();
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		    
-		    String dbName = "SnackMounir"; 
-		    String dbUserName = "root"; 
-		    String dbPassword = "root"; 
-		    String connectionString = "jdbc:mysql://127.0.0.1:3306/" + dbName + "?user=" + dbUserName + "&password=" + dbPassword + "&useUnicode=true&characterEncoding=UTF-8";
-
-		    conn = DriverManager.getConnection(connectionString);
-		    
+			
 		    stmt = conn.createStatement();
 		    rs = stmt.executeQuery("SELECT * FROM Article");
 		    while(rs.next()) {
